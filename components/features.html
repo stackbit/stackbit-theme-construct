@@ -1,0 +1,25 @@
+<!-- Features -->
+<section id="{{ include_dict.section.section_id }}" class="special">
+    <header class="major">
+        <h2>{{ include_dict.section.title }}</h2>
+        {{ include_dict.section.subtitle | markdownify }}
+    </header>
+    <section class="features">
+        {% for feature in include_dict.section.features %}
+            <section>
+                <span class="icon major {{ feature.icon }}"></span>
+                <h3>{{ feature.title }}</h3>
+                {{ feature.text | markdownify }}
+            </section>
+        {% endfor %}
+    </section>
+    {% if include_dict.section.actions %}
+        <footer class="major">
+            <ul class="actions special">
+                {% for action in include_dict.section.actions %}
+                    <li><a href="{% if action.url | starts_with('#') %}{{ action.url }}{% else %}{{ action.url | link | relative_url }}{% endif %}" {{ classNames("button", {"primary": action.is_primary}, {"scrolly": action.is_scrolly}) }}>{{ action.label }}</a></li>
+                {% endfor %}
+            </ul>
+        </footer>
+    {% endif %}
+</section>

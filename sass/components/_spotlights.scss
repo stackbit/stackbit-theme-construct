@@ -1,0 +1,51 @@
+///
+/// Construct by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Spotlights */
+
+	.spotlights {
+		@include vendor('display', 'flex');
+		@include vendor('flex-wrap', 'wrap');
+		border-top: none !important;
+		padding: 0 !important;
+
+		> section {
+			@include padding(5em, 4em);
+			border-top: solid _size(border-width);
+			width: 50%;
+
+			&:nth-child(odd) {
+				border-right: solid _size(border-width);
+			}
+
+			.image {
+				margin-bottom: (_size(element-margin) * 0.75);
+			}
+
+			@include breakpoint('<=medium') {
+				@include padding(3em, 3em);
+			}
+
+			@include breakpoint('<=xsmall') {
+				@include padding(3em, 2em);
+				width: 100%;
+			}
+		}
+	}
+
+
+	@mixin color-spotlights($p: null) {
+		$highlight: _palette($p, highlight);
+
+		.spotlights {
+			> section,
+			> section:nth-child(odd) {
+				border-color: _palette($p, border);
+			}
+		}
+	}
+
+	@include color-spotlights;

@@ -1,0 +1,16 @@
+///
+/// Construct by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Header */
+
+	#header {
+		@include padding(4em, 2em);
+		text-align: center;
+
+		@include breakpoint('<=small') {
+			@include padding(3em, 2em)
+		}
+	}

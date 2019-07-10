@@ -1,0 +1,10 @@
+.wrapper .inner img,
+.highlights section .content .major img,
+.highlights section .conmtent img,
+.banner .major img,
+.special .major img,
+.wrapper .inner .major img,
+.spotlights section img,
+.special .features section img{
+    max-width: 100%;
+}

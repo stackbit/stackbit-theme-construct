@@ -1,0 +1,30 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+    {% if page.params.display_header %}
+        <!-- Header -->
+        <header id="header">
+            <h1>{{ site.title }}</h1>
+        </header>
+    {% endif %}
+    
+    <!-- Main -->
+    <section id="main" class="wrapper alt">
+        <div class="inner">
+            
+            <header class="major special">
+                <h2>{{ page.title }}</h2>
+                {{ page.params.subtitle | markdownify }}
+            </header>
+            
+            {% if page.params.content_img %}
+                <a href="#" class="image fit"><img src="{{ page.params.content_img | relative_url }}" alt="" /></a>
+            {% endif %}
+            
+            {{ page.content }}
+            
+        </div>
+    </section>
+
+{% endblock %}

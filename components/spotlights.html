@@ -1,0 +1,21 @@
+<!-- Spotlights -->
+<section id="{{ include_dict.section.section_id }}" class="spotlights special">
+    {% for section_page in getPages("/") | where("home.spotlights.enabled", true) | sort_array("home.spotlights.weight") %}
+        {% if section_page.params.home.spotlights.weight > 0 or section_page.params.home.spotlights.weight < 1 %}
+            <section>
+                <header class="major">
+                    <h3>{{ section_page.title }}</h3>
+                </header>
+                {% if section_page.params.home.spotlights.home_img_path %}
+                    <div class="image fit">
+                        <img src="{{ section_page.params.home.spotlights.home_img_path }}" alt="" />
+                    </div>
+                {% endif %}
+                {{ section_page.params.home.spotlights.excerpt | markdownify }}
+                <ul class="actions special">
+                    <li><a href="{{ section_page.url | relative_url }}" class="button">Learn More</a></li>
+                </ul>
+            </section>
+        {% endif %}
+    {% endfor %}
+</section>

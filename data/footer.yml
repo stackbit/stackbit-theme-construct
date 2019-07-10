@@ -1,0 +1,21 @@
+social_icons:
+  - title: Twitter
+    url: "#"
+    icon: fa-twitter
+  - title: Facebook
+    url: "#"
+    icon: fa-facebook
+  - title: LinkedIn
+    url: "#"
+    icon: fa-linkedin
+  - title: Github
+    url: "#"
+    icon: fa-github
+  - title: Email
+    url: "#"
+    icon: fa-envelope
+copyright: "&copy; Construct. All rights reserved. Lorem ipsum dolor sit amet nullam consequat."
+links:
+  - text: Made with Stackbit
+    url: https://www.stackbit.com
+    new_window: true

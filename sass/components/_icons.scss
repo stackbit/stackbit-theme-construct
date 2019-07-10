@@ -1,0 +1,226 @@
+///
+/// Construct by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Icons */
+
+	ul.icons {
+		cursor: default;
+		list-style: none;
+		padding-left: 0;
+
+		li {
+			display: inline-block;
+			font-size: 1.35em;
+			margin: 0 1em 0 0;
+			padding-left: 0;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		&.special {
+			.icon {
+				margin-right: 0.75em;
+
+				&:before {
+					@include vendor('transition', 'background-color #{_duration(transition)} ease-in-out');
+					border-radius: 100%;
+					display: inline-block;
+					height: 2.15em;
+					line-height: 2.15em;
+					text-align: center;
+					width: 2.15em;
+				}
+
+				&:last-child {
+					margin-right: 0;
+				}
+
+				&.fa-twitter {
+					&:before {
+						background-color: #48BDCE;
+					}
+
+					&:hover {
+						&:before {
+							background-color: lighten(#48BDCE, 5);
+						}
+					}
+
+					&:active {
+						&:before {
+							background-color: darken(#48BDCE, 5);
+						}
+					}
+				}
+
+				&.fa-facebook {
+					&:before {
+						background-color: #4E81C8;
+					}
+
+					&:hover {
+						&:before {
+							background-color: lighten(#4E81C8, 5);
+						}
+					}
+
+					&:active {
+						&:before {
+							background-color: darken(#4E81C8, 5);
+						}
+					}
+				}
+
+				&.fa-linkedin {
+					&:before {
+						background-color: #3A96C6;
+					}
+
+					&:hover {
+						&:before {
+							background-color: lighten(#3A96C6, 5);
+						}
+					}
+
+					&:active {
+						&:before {
+							background-color: darken(#3A96C6, 5);
+						}
+					}
+				}
+
+				&.fa-github {
+					&:before {
+						background-color: #7A9697;
+					}
+
+					&:hover {
+						&:before {
+							background-color: lighten(#7A9697, 5);
+						}
+					}
+
+					&:active {
+						&:before {
+							background-color: darken(#7A9697, 5);
+						}
+					}
+				}
+
+				&.fa-envelope {
+					&:before {
+						background-color: #909090;
+					}
+
+					&:hover {
+						&:before {
+							background-color: lighten(#909090, 5);
+						}
+					}
+
+					&:active {
+						&:before {
+							background-color: darken(#909090, 5);
+						}
+					}
+				}
+			}
+		}
+
+		&.large {
+			li {
+				font-size: 2.65em;
+			}
+
+			&.special {
+				li {
+					font-size: 2.15em;
+				}
+			}
+		}
+
+		&.series {
+			.icon {
+				&:after {
+					-moz-osx-font-smoothing: grayscale;
+					-webkit-font-smoothing: antialiased;
+					content: '\F105'; // Right-pointing angle bracket
+					font-family: FontAwesome;
+					font-style: normal;
+					font-weight: normal;
+					margin-left: 1em;
+					text-transform: none !important;
+				}
+
+				&:last-child {
+					&:after {
+						display: none;
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=xsmall') {
+			li {
+				margin-right: 0.5em;
+			}
+
+			&.series {
+				.icon {
+					&:after {
+						margin-left: 0.5em;
+					}
+				}
+			}
+		}
+	}
+
+	@mixin color-icons($p: null) {
+		$highlight: _palette($p, highlight);
+
+		ul.icons {
+			@if $p == $highlight {
+				.icon {
+					color: _palette(fg-bold) !important;
+				}
+
+				&.special {
+					.icon {
+						&:before {
+							background-color: _palette($p, fg-bold);
+							color: _palette(fg-bold) !important;
+						}
+					}
+				}
+			}
+			@else {
+				.icon {
+					color: _palette($highlight, bg);
+				}
+
+				&.special {
+					.icon {
+						&:before {
+							background-color: _palette($highlight, bg);
+							color: _palette($highlight, fg-bold);
+						}
+					}
+				}
+
+				&.series {
+					.icon {
+						&:after {
+							color: _palette($p, border2);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include color-icons;

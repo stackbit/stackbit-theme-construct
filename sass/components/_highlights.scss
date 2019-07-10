@@ -1,0 +1,68 @@
+///
+/// Construct by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Highlights */
+
+	.highlights {
+		padding: 0 !important;
+
+		> section {
+			@include vendor('display', 'flex');
+			min-height: 22.5em;
+
+			.image {
+				background-size: cover;
+				border-radius: 0;
+				width: 50%;
+			}
+
+			.content {
+				@include padding(9em, 4em);
+				width: 50%;
+			}
+
+			header {
+				margin-bottom: 0;
+
+				p {
+					margin-bottom: (_size(element-margin) * 0.4);
+				}
+			}
+
+			&:nth-child(odd) {
+				@include vendor('flex-direction', 'row-reverse');
+			}
+
+			@include breakpoint('<=medium') {
+				.content {
+					@include padding(6em, 3em);
+				}
+			}
+
+			@include breakpoint('<=small') {
+				@include vendor('flex-wrap', 'wrap');
+
+				.image {
+					height: 50vh;
+					min-height: 15em;
+					width: 100%;
+				}
+
+				.content {
+					@include padding(3em, 2em);
+					text-align: center;
+					width: 100%;
+				}
+
+				h2 {
+					&:after {
+						margin-left: auto;
+						margin-right: auto;
+					}
+				}
+			}
+		}
+	}

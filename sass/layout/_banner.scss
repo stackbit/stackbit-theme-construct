@@ -1,0 +1,79 @@
+///
+/// Construct by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Banner */
+
+	$banner-palette: accent1;
+
+	#banner {
+		@include color-button($banner-palette);
+		@include color-section($banner-palette);
+		@include color-typography($banner-palette);
+		@include vendor('display', 'flex');
+		@include vendor('flex-direction', 'column');
+		@include vendor('justify-content', 'center');
+		@include padding(8em, 4em, (1em, 0, 0, 0));
+		min-height: 65vh;
+		background: _palette($banner-palette, bg);
+		text-align: center;
+
+		body.is-ie & {
+			min-height: 0;
+			height: 65vh;
+		}
+
+		header {
+			margin-bottom: 0;
+		}
+
+		h1 {
+			font-size: 4em;
+			margin: 0 0 0.5em 0;
+			padding: 0;
+
+			&:after {
+				margin: 0.45em auto 0;
+			}
+		}
+
+		p {
+			font-size: 1.25em;
+		}
+
+		@include breakpoint('<=xlarge') {
+			body.is-ie & {
+				height: auto;
+			}
+		}
+
+		@include breakpoint('<=large') {
+			@include padding(5em, 4em, (1em, 0, 0, 0));
+
+			h1 {
+				font-size: 3.5em;
+			}
+		}
+
+		@include breakpoint('<=medium') {
+			@include padding(6em, 4em, (1em, 0, 0, 0));
+		}
+
+		@include breakpoint('<=small') {
+			@include padding(4.5em, 2em, (1.5em, 0, 0, 0));
+
+			br {
+				display: none;
+			}
+
+			h1 {
+				font-size: 2.25em;
+			}
+
+			p {
+				font-size: 1.25em;
+			}
+		}
+	}

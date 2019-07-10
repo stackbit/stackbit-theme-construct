@@ -1,0 +1,64 @@
+///
+/// Construct by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Wrapper */
+
+	.wrapper {
+		@include padding(7.5em, 0);
+		position: relative;
+
+		> .inner {
+			margin: 0 auto;
+			max-width: 72em;
+			width: 100%;
+		}
+
+		&.style1 {
+			@include color(accent1);
+		}
+
+		&.style2 {
+			@include color(accent2);
+		}
+
+		&.alt {
+			> .inner {
+				@include padding(7em, 4em);
+			}
+		}
+
+		@include breakpoint('<=large') {
+			@include padding(6em, 2em);
+
+			&.alt {
+				> .inner {
+					@include padding(6em, 4em);
+				}
+			}
+		}
+
+		@include breakpoint('<=medium') {
+			&.alt {
+				> .inner {
+					@include padding(4em, 3em);
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			@include padding(4em, 2em);
+
+			&.alt {
+				> .inner {
+					@include padding(3em, 2em);
+				}
+			}
+		}
+
+		@include breakpoint('<=xsmall') {
+			@include padding(3em, 2em);
+		}
+	}

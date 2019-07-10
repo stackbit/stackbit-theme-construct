@@ -1,0 +1,117 @@
+///
+/// Construct by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Section/Article */
+
+	section, article, header {
+		&.special {
+			text-align: center;
+		}
+	}
+
+	header {
+		p {
+			position: relative;
+			margin: 0 0 (_size(element-margin) * 0.6) 0;
+		}
+
+		h2 + p {
+			font-size: 1.25em;
+			margin-top: (_size(element-margin) * -0.55);
+		}
+
+		h3 + p {
+			font-size: 1.1em;
+			margin-top: (_size(element-margin) * -0.45);
+		}
+
+		h4 + p,
+		h5 + p,
+		h6 + p {
+			font-size: 0.9em;
+			margin-top: (_size(element-margin) * -0.35);
+		}
+
+		&.special {
+			h2, h3 {
+				&:after {
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
+		}
+
+		&.major {
+			margin-bottom: (_size(element-margin) * 1.5);
+
+			h1, h2, h3 {
+				&:after {
+					content: '';
+					display: block;
+					height: _size(border-width);
+				}
+
+				.special &:after {
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
+
+			h1, h2 {
+				font-size: 2.55em;
+
+				&:after {
+					margin-top: 0.6em;
+					width: 2em;
+				}
+			}
+
+			h3 {
+				&:after {
+					margin-top: 1em;
+					width: 3em;
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			&.major {
+				margin-bottom: (_size(element-margin) * 0.75);
+
+				h1, h2 {
+					font-size: 2em;
+				}
+			}
+
+			br {
+				display: none;
+			}
+		}
+	}
+
+	footer {
+		&.major {
+			margin-top: (_size(element-margin) * 1.5);
+		}
+	}
+
+	@mixin color-section($p: null) {
+		header {
+			p {
+				color: _palette($p, fg-light);
+			}
+
+			&.major {
+				h1, h2, h3 {
+					&:after {
+						background-color: _palette($p, border2);
+					}
+				}
+			}
+		}
+	}
+
+	@include color-section;

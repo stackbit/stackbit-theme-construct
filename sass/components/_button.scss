@@ -1,0 +1,169 @@
+///
+/// Construct by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Button */
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button,
+	.button {
+		@include vendor('appearance', 'none');
+		@include vendor('transition', 'background-color #{_duration(transition)} ease-in-out, color #{_duration(transition)} ease-in-out, border-color #{_duration(transition)} ease-in-out');
+		border-radius: _size(border-radius);
+		border: solid (_size(border-width) * 2);
+		cursor: pointer;
+		display: inline-block;
+		font-weight: _font(weight-bold);
+		height: 3.15em;
+		line-height: 3em;
+		padding: 0 2em;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+
+		&:after {
+			-moz-osx-font-smoothing: grayscale;
+			-webkit-font-smoothing: antialiased;
+			content: '\F105'; // Right-pointing angle bracket
+			font-family: FontAwesome;
+			font-style: normal;
+			font-weight: normal;
+			margin-left: 0.75em;
+			text-transform: none !important;
+		}
+
+		&.icon {
+			padding-left: 1.35em;
+
+			&:after {
+				display: none;
+			}
+
+			&:before {
+				@include vendor('transition', 'color #{_duration(transition)} ease-in-out');
+				margin-right: 0.5em;
+			}
+		}
+
+		&.fit {
+			width: 100%;
+		}
+
+		&.small {
+			font-size: 0.8em;
+		}
+
+		&.large {
+			font-size: 1.15em;
+		}
+
+		&.solo {
+			border-radius: 100%;
+			display: inline-block;
+			height: 2.15em;
+			line-height: 2.15em;
+			padding: 0;
+			text-align: center;
+			width: 2.15em;
+
+			&:before {
+				margin: 0 !important;
+			}
+
+			&:after {
+				display: none;
+			}
+
+			&.large {
+				font-size: 2em;
+			}
+		}
+
+		&.disabled,
+		&:disabled {
+			@include vendor('pointer-events', 'none');
+			opacity: 0.25;
+		}
+
+		@include breakpoint('<=xsmall') {
+			padding: 0;
+		}
+	}
+
+	@mixin color-button($p: null) {
+		$highlight: _palette($p, highlight);
+
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"],
+		button,
+		.button {
+			background-color: transparent;
+			border-color: _palette(border);
+			color: _palette($p, fg-bold) !important;
+
+			&:hover {
+				border-color: _palette($highlight, bg);
+				color: _palette($highlight, bg) !important;
+			}
+
+			&:active {
+				background-color: rgba(_palette($highlight, bg), 0.1);
+				border-color: _palette($highlight, bg);
+				color: _palette($highlight, bg) !important;
+			}
+
+			&.icon {
+				&:before {
+					color: _palette($p, fg-light);
+				}
+			}
+
+			&.primary {
+				@if $p == $highlight {
+					background-color: _palette($p, fg-bold);
+					border-color: transparent;
+					color: _palette(fg-bold) !important;
+
+					&.icon {
+						&:before {
+							color: _palette(fg-light);
+						}
+					}
+
+					&:hover {
+						color: _palette($p, bg) !important;
+
+						&:before {
+							color: _palette($p, bg);
+						}
+					}
+				}
+				@else {
+					background-color: _palette($highlight, bg);
+					border-color: transparent;
+					color: _palette($highlight, fg-bold) !important;
+
+					&.icon {
+						&:before {
+							color: _palette($highlight, fg-light);
+						}
+					}
+
+					&:hover {
+						background-color: lighten(_palette($highlight, bg), 5);
+					}
+
+					&:active {
+						background-color: darken(_palette($highlight, bg), 5);
+					}
+				}
+			}
+		}
+	}
+
+	@include color-button;

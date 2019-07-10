@@ -1,0 +1,12 @@
+<!-- Intro -->
+<section id="{{ include_dict.section.section_id }}" class="special">
+    <header class="major">
+        <h2>{{ include_dict.section.title }}</h2>
+        {{ include_dict.section.subtitle | markdownify }}
+    </header>
+    <ul class="icons large series">
+        {% for item in include_dict.section.icons %}
+            <li class="icon {{ item.icon }}"></li>
+        {% endfor %}
+    </ul>
+</section>

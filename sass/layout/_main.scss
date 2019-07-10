@@ -1,0 +1,57 @@
+///
+/// Construct by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Main */
+
+	#main {
+		padding: 6em 0;
+
+		#header + & {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+
+		> .inner {
+			background-color: #fff;
+
+			> section {
+				@include padding(7em, 4em);
+				border-top: solid _size(border-width) _palette(border);
+
+				&:first-child {
+					border-top: none;
+				}
+			}
+		}
+
+		@include breakpoint('<=large') {
+			padding: 2em 2em;
+
+			> .inner {
+				> section {
+					@include padding(6em, 4em);
+				}
+			}
+		}
+
+		@include breakpoint('<=medium') {
+			padding: 0;
+
+			> .inner {
+				> section {
+					@include padding(6em, 3em);
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			> .inner {
+				> section {
+					@include padding(3em, 2em);
+				}
+			}
+		}
+	}

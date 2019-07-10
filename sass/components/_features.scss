@@ -1,0 +1,70 @@
+///
+/// Construct by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Feature */
+
+	.features {
+		@include vendor('display', 'flex');
+		@include vendor('flex-wrap', 'wrap');
+		border-bottom: solid _size(border-width);
+		border-left: solid _size(border-width);
+		margin: 0 0 _size(element-margin) 0;
+
+		> section {
+			@include padding(4em, 4em);
+			border-right: solid _size(border-width);
+			border-top: solid _size(border-width);
+			width: 50%;
+
+			.icon {
+				margin-bottom: _size(element-margin);
+
+				&:before {
+					font-size: 3em;
+				}
+			}
+
+			h3 {
+				margin-bottom: (_size(element-margin) * 0.35);
+			}
+		}
+
+		@include breakpoint('<=medium') {
+			> section {
+				@include padding(2em, 2em);
+			}
+		}
+
+		@include breakpoint('<=small') {
+			margin: _size(element-margin) 0;
+		}
+
+		@include breakpoint('<=xsmall') {
+			> section {
+				width: 100%;
+			}
+		}
+	}
+
+	@mixin color-features($p: null) {
+		$highlight: _palette($p, highlight);
+
+		.features {
+			border-color: _palette($p, border);
+
+			> section {
+				border-color: _palette($p, border);
+
+				.icon {
+					&:before {
+						color: _palette($highlight, bg);
+					}
+				}
+			}
+		}
+	}
+
+	@include color-features;

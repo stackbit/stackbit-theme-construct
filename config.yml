@@ -1,0 +1,26 @@
+baseurl: "/"
+title: "Construct"
+main_js: "assets/js/main.js"
+params:
+  palette: blue
+  palettes:
+    blue:
+      sass:
+        color: "#4a74c9"
+    cyan:
+      sass:
+        color: "#33bdb5"
+    green:
+      sass:
+        color: "#459e59"
+    red:
+      sass:
+        color: "#ce5667"
+sass:
+  input_file: sass/main.scss.njk
+  output_file: assets/css/main.css
+  indentWidth: 4
+  outputStyle: nested
+  precision: 10
+#templates:
+#  body_class: "is-preload"
