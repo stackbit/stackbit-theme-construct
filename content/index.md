@@ -43,7 +43,7 @@ sections:
         icon: fa-floppy-o
     actions:
       - label: Learn More
-        url: elements.md
+        url: "/elements"
         is_scrolly: false
         is_primary: false
     component: "features.html"
@@ -61,7 +61,7 @@ cta:
   background_style: style1
   actions:
     - label: Get Started
-      url: generic.md
+      url: "/generic"
       is_scrolly: false
       is_primary: true
 template: home
