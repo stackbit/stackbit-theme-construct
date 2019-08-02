@@ -435,5 +435,7 @@ models:
 stackbit_banner:
   show_banner: true
   name: Construct
-  create_url: 'https://app.stackbit.com/wizard?theme=construct'
+  create_url: 'https://app.stackbit.com/create?theme=construct'
   github_url: 'https://github.com/stackbithq/stackbit-theme-construct'
+pagesDir: content
+staticDir: static
